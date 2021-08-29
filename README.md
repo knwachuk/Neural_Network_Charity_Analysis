@@ -4,7 +4,7 @@
 
 A **neural network** (also known as the **artificial neural networks** or **ANN**) are a set of algorithms that are modeled after the human brain. They are an advanced form of machine learning that recognizes patterns and features in input data and provides a clear quantitative output.
 
-![](Workflow-diagram-of-the-artificial-neural-network-algorithm-developed-by-Lancashire-et.png)
+![](img/Workflow-diagram-of-the-artificial-neural-network-algorithm-developed-by-Lancashire-et.png)
 
 *Workflow diagram of the artificial neural network*
 
@@ -109,9 +109,42 @@ X_test_scaled = X_scaler.transform(X_test)
 
 ### Deliverable 2: Compile, Train, and Evaluate the Model (20 points)
 
+A deep neural network with 2 hidden layers is defined (see the table below).
+
+| Layer | Nodes | Activatioin Func |
+| ----- | ----- | ---------------- |
+| Input Layer | # of Input Features | N/A
+| Hidden Layer 1 | 80 | relu |
+| Hidden Layer 2 | 30 | relu |
+| Output Layer | 1 | sigmoid |
+
+![Artificial Neural Network #1](img/mltechptwy-mod-3-dev-2-ann.png)
+
 ### Deliverable 3: Optimize the Model (20 points)
 
+To optimize the previously defined neural network, a third hidden layer was added (see the table below).
+
+| Layer | Nodes | Activatioin Func |
+| ----- | ----- | ---------------- |
+| Input Layer | # of Input Features | N/A
+| Hidden Layer 1 | 80 | relu |
+| Hidden Layer 2 | 30 | relu |
+| Hidden Layer 3 | 30 | relu |
+| Output Layer | 1 | sigmoid |
+
+![Artificial Neural Network #1](img/mltechptwy-mod-3-dev-2-ann-optimized.png)
+
 ## Results
+
+### Neural Network
+
+268/268 - 0s - loss: 0.5524 - accuracy: 0.7254
+Loss: 0.5524417161941528, Accuracy: 0.5253644466400146
+
+### Optimized Neural Network
+
+268/268 - 0s - loss: 0.5524 - accuracy: 0.7254
+Loss: 0.5524417161941528, Accuracy: 0.7253644466400146
 
 ## Summary
 
