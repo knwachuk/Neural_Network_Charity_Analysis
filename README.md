@@ -1,6 +1,12 @@
 # Neural Network Charity Analysis
 
-[Module 3]() is to use Python 
+[Module 3](https://trilogyed.instructure.com/courses/626/pages/3-dot-0-1-the-rise-of-machine-learning?module_item_id=32093) is focused on creating and optimizing a neural network machine learning algorithm to determine which non-profit organization to invest in.
+
+A **neural network** (also known as the **artificial neural networks** or **ANN**) are a set of algorithms that are modeled after the human brain. They are an advanced form of machine learning that recognizes patterns and features in input data and provides a clear quantitative output.
+
+![](Workflow-diagram-of-the-artificial-neural-network-algorithm-developed-by-Lancashire-et.png)
+
+*Workflow diagram of the artificial neural network*
 
 ## Analysis
 
@@ -50,6 +56,8 @@ This process is repeated for all (`object`) columns with a unique categorical co
 
 #### One Hot Encoding
 
+The categorical data across object columns are then encoded using a one-hot (also known as **one-of-K scheme**) encoder. Fortunately, [scikit-learn](https://scikit-learn.org/stable/) is flexible enough to perform all of the one-hot encodings at the same time.
+
 ```python
 # Create a OneHotEncoder instance
 enc = OneHotEncoder(sparse=False)
@@ -63,11 +71,40 @@ encode_df.columns = enc.get_feature_names(application_cat)
 encode_df.head()
 ```
 
+The encoded DataFrame, `encode_df`, is merged to the original DatFrame, `application_df`, then the original columns are dropped. Ensuring that all columns are of a numerical datatype.
+
 ```python
 # Merge one-hot encoded features and drop the originals
 application_df = application_df.merge(encode_df, left_index=True, right_index=True)
 application_df = application_df.drop(application_cat, 1)
 application_df.head()
+```
+
+#### Train/Test split and Scaling
+
+Finally, the dataset is split
+
+```python
+# Split our preprocessed data into our features and target arrays
+y = application_df["IS_SUCCESSFUL"].values
+X = application_df.drop(["IS_SUCCESSFUL"], 1).values
+
+# Split the preprocessed data into a training and testing dataset
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1)
+```
+
+and scaled with the scikit-learn standard scaler
+
+```python
+# Create a StandardScaler instances
+scaler = StandardScaler()
+
+# Fit the StandardScaler
+X_scaler = scaler.fit(X_train)
+
+# Scale the data
+X_train_scaled = X_scaler.transform(X_train)
+X_test_scaled = X_scaler.transform(X_test)
 ```
 
 ### Deliverable 2: Compile, Train, and Evaluate the Model (20 points)
@@ -77,3 +114,7 @@ application_df.head()
 ## Results
 
 ## Summary
+
+## References
+
+Zafeiris, Dimitrios & Rutella, Sergio & Ball, Graham. (2018). An Artificial Neural Network Integrated Pipeline for Biomarker Discovery Using Alzheimer's Disease as a Case Study. Computational and Structural Biotechnology Journal. 16. 10.1016/j.csbj.2018.02.001. 
