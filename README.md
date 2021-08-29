@@ -138,8 +138,8 @@ To optimize the previously defined neural network, a third hidden layer was adde
 
 ### Neural Network
 
-268/268 - 0s - loss: 0.5524 - accuracy: 0.7254
-Loss: 0.5524417161941528, Accuracy: 0.5253644466400146
+268/268 - 0s - loss: 0.6915 - accuracy: 0.5292
+Loss: 0.691472589969635, Accuracy: 0.5292128324508667
 
 ### Optimized Neural Network
 
@@ -147,6 +147,8 @@ Loss: 0.5524417161941528, Accuracy: 0.5253644466400146
 Loss: 0.5524417161941528, Accuracy: 0.7253644466400146
 
 ## Summary
+
+From the Result, it is clear that the extra added hidden layer improve the network accurary by 20. Meaning that the 3 layer model is a better network setup.
 
 ## References
 
